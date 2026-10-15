@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>HustleAI — Open AI for small sellers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span><span>Hustle<span class="brand-accent">AI</span></span></a>
+    <div class="topbar-right"><span class="open-pill"><span class="pulse"></span> OPEN AI POWERED</span><a class="github-link" href="https://ollama.com/" target="_blank" rel="noreferrer">Runs with Ollama ↗</a></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span>✳</span> YOUR CREATIVE SIDEKICK</div>
+      <h1>Turn product ideas into<br><span class="gradient-text">sales-ready content.</span></h1>
+      <p class="hero-copy">A practical AI copilot for independent sellers. Create product listings, social captions and catchy headlines — without expensive AI subscriptions.</p>
+      <div class="hero-tags"><span>✦ Open-weight models</span><span>◈ Local-first option</span><span>↗ Made for small business</span></div>
+    </section>
+
+    <section class="workspace">
+      <div class="form-panel panel">
+        <div class="panel-heading"><div><span class="step">01</span><h2>Tell us about your product</h2></div><span class="sparkle">✧</span></div>
+        <form id="generator-form">
+          <label for="product">Product or service <span class="required">*</span></label>
+          <input id="product" name="product" placeholder="e.g. Handmade soy candles" required maxlength="120">
+          <label for="details">What makes it special?</label>
+          <textarea id="details" name="details" rows="4" placeholder="Mention benefits, materials, audience, price, or unique details…" maxlength="800"></textarea>
+          <div class="field-row">
+            <div class="field"><label for="platform">Platform</label><select id="platform" name="platform"><option>Instagram</option><option>Etsy</option><option>Amazon</option><option>Facebook Marketplace</option><option>Shopify</option><option>LinkedIn</option></select></div>
+            <div class="field"><label for="tone">Brand voice</label><select id="tone" name="tone"><option>Friendly</option><option>Premium</option><option>Playful</option><option>Minimal</option><option>Professional</option><option>Persuasive</option></select></div>
+          </div>
+          <label for="output-type">What should we create?</label>
+          <div class="output-options">
+            <label class="option selected"><input type="radio" name="outputType" value="Product listing" checked><span class="option-icon">▤</span><span><b>Product listing</b><small>Clear & convincing</small></span></label>
+            <label class="option"><input type="radio" name="outputType" value="Social caption"><span class="option-icon">◎</span><span><b>Social caption</b><small>Stop the scroll</small></span></label>
+            <label class="option"><input type="radio" name="outputType" value="Product headlines"><span class="option-icon">✳</span><span><b>Headlines</b><small>Catch attention</small></span></label>
+          </div>
+          <button class="generate-btn" id="generate-btn" type="submit"><span>✦</span><span id="button-label">Generate content</span><span class="button-arrow">↗</span></button>
+          <p class="privacy-note"><span>⌑</span> With local Ollama, your prompt can stay on your own computer.</p>
+        </form>
+      </div>
+
+      <div class="result-panel panel">
+        <div class="panel-heading result-heading"><div><span class="step">02</span><h2>Your content studio</h2></div><span class="live-badge"><span class="pulse"></span><span id="status-label">READY</span></span></div>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-art"><div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div><div class="art-core">✦</div><span class="art-star star-a">✧</span><span class="art-star star-b">✳</span></div>
+          <h3>Your next big idea starts here.</h3>
+          <p>Fill in your product details and let your AI copilot do the first draft.</p>
+          <div class="empty-hint"><span>01</span> Add product details <span class="hint-line"></span><span>02</span> Generate <span class="hint-line"></span><span>03</span> Refine & publish</div>
+        </div>
+        <div id="loading-state" class="loading-state hidden"><div class="loader"></div><h3>Making something good…</h3><p>Your content is being drafted.</p></div>
+        <div id="result-content" class="result-content hidden">
+          <div class="result-meta"><span class="result-type" id="result-type">PRODUCT LISTING</span><span id="model-label">LOCAL AI</span></div>
+          <div id="generated-text" class="generated-text" aria-live="polite"></div>
+          <div class="result-actions"><button id="copy-btn" class="secondary-btn">▣ Copy content</button><button id="regenerate-btn" class="secondary-btn">↻ Try again</button></div>
+          <p class="edit-tip">Tip: Treat AI output as a first draft. Check claims, pricing and platform rules before publishing.</p>
+        </div>
+        <div class="result-footer"><span><span class="footer-dot"></span> Built for independent makers</span><span>HUSTLE SMARTER ✦</span></div>
+      </div>
+    </section>
+
+    <section class="value-strip">
+      <div><span class="value-icon">⌘</span><div><b>Open by design</b><p>Use open-weight models you can switch.</p></div></div>
+      <div><span class="value-icon">⌂</span><div><b>Local-first potential</b><p>Run inference on your own device.</p></div></div>
+      <div><span class="value-icon">↗</span><div><b>Built for real work</b><p>Spend less time staring at a blank page.</p></div></div>
+    </section>
+    <footer><span>© 2026 HustleAI · A side-hustle MVP</span><span>HTML · CSS · JavaScript · Ollama</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "hustleai-open-source-side-hustle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A local-first AI listing and marketing copilot powered by Ollama and an open-weight model.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
